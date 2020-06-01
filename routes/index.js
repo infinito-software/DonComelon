@@ -651,6 +651,7 @@ router.get('/usuario', jwtMW, async (req, res, next) => {
 router.get('/usuarioPorCelular', jwtMW, async (req, res, next) => {
 
     var celular = req.query.Celular;
+    var contraseña = req.body.Contraseña;
     if (celular != null) {
         try {
             const pool = await poolPromise
@@ -662,7 +663,7 @@ router.get('/usuarioPorCelular', jwtMW, async (req, res, next) => {
                 .input('Direccion', sql.NVarChar, ' ')
                 .input('Referencia', sql.NVarChar, ' ')
                 .input('Correo', sql.NVarChar, ' ')
-                .input('Contraseña', sql.NVarChar, ' ')
+                .input('Contraseña', sql.NVarChar, contraseña)
                 .input('Tema', sql.Int, 0)
                 .execute('PA_POST_GET_Usuario')
 
