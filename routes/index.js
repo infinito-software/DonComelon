@@ -624,6 +624,8 @@ router.get('/usuario', jwtMW, async (req, res, next) => {
                     .input('Nombre', sql.NVarChar, ' ')
                     .input('Direccion', sql.NVarChar, ' ')
                     .input('Referencia', sql.NVarChar, ' ')
+                    .input('Correo', sql.NVarChar, ' ')
+                    .input('Contraseña', sql.NVarChar, ' ')
                     .input('Tema', sql.NVarChar, 0)
                     .execute('PA_POST_GET_Usuario')
                     
@@ -659,6 +661,8 @@ router.get('/usuarioPorCelular', jwtMW, async (req, res, next) => {
                 .input('Nombre', sql.NVarChar, ' ')
                 .input('Direccion', sql.NVarChar, ' ')
                 .input('Referencia', sql.NVarChar, ' ')
+                .input('Correo', sql.NVarChar, ' ')
+                .input('Contraseña', sql.NVarChar, ' ')
                 .input('Tema', sql.Int, 0)
                 .execute('PA_POST_GET_Usuario')
 
@@ -685,6 +689,8 @@ router.post('/usuario', jwtMW, async (req, res, next) => {
         var nombre = req.body.Nombre;
         var direccion = req.body.Direccion;
         var referencia = req.body.Referencia;
+        var correo = req.body.Correo;
+        var contraseña = req.body.Contraseña;
 
         var authorization = req.headers.authorization, decoded;
         try {
@@ -705,6 +711,8 @@ router.post('/usuario', jwtMW, async (req, res, next) => {
                     .input('Nombre', sql.NVarChar, nombre)
                     .input('Direccion', sql.NVarChar, direccion)
                     .input('Referencia', sql.NVarChar, referencia)
+                    .input('Correo', sql.NVarChar, correo)
+                    .input('Contraseña', sql.NVarChar, contraseña)
                     .input('FBID', sql.NVarChar, fbid)
                     .input('Tema', sql.NVarChar, 0)
                     .execute('PA_POST_GET_Usuario')
@@ -750,6 +758,8 @@ router.put('/usuario', jwtMW, async (req, res, next) => {
                 .input('Nombre', sql.NVarChar, ' ')
                 .input('Direccion', sql.NVarChar, ' ')
                 .input('Referencia', sql.NVarChar, ' ')
+                .input('Correo', sql.NVarChar, ' ')
+                .input('Contraseña', sql.NVarChar, ' ')
                 .input('FBID', sql.NVarChar, fbid)
                 .input('Tema', sql.NVarChar, tema)
                 .execute('PA_POST_GET_Usuario')

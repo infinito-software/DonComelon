@@ -1,9 +1,9 @@
 ﻿const sql = require('mssql')
 var config = {
-    user: 'DB_A62319_doncomeloniq_admin',
-    password: 'INFINITO0405',
-    server: 'sql5045.site4now.net',
-    database: 'DB_A62319_doncomeloniq'
+    user: 'sa',
+    password: '1234',
+    server: 'localhost',
+    database: 'BD_DONCOMELON'
 };
 
 const poolPromise = new sql.ConnectionPool(config)
